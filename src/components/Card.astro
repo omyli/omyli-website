@@ -1,0 +1,14 @@
+---
+import "../css/card.css";
+const { image, price, width, height, marginBottom, marginRight } = Astro.props;
+---
+
+<div
+  class="card-container"
+  style={`width: ${width}; height: ${height}; margin-bottom: ${marginBottom}; margin-right: ${marginRight};`}
+>
+  <img src={image} alt="" />
+  <div class="card-content">
+    <span>${price} MXN</span>
+  </div>
+</div>

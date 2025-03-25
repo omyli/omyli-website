@@ -1,11 +1,110 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import PromoBaner from "../components/PromoBaner.astro";
+import "../css/home.css";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const properties = [
+  {
+    image:
+      "https://res.cloudinary.com/joaquin-test/image/upload/v1742883897/omyli/casas/DALL_E_2025-03-25_00.24.21_-_A_Mediterranean_style_villa_with_terracotta_roof_palm_trees_and_courtyard_sunny_day_realistic_style_lk1vlf.webp",
+    price: "250,000",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/joaquin-test/image/upload/v1742883896/omyli/casas/DALL_E_2025-03-25_00.24.27_-_A_traditional_Japanese_house_with_sliding_doors_wooden_deck_and_zen_garden_realistic_style_bns7zi.webp",
+    price: "315,000",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/joaquin-test/image/upload/v1742883896/omyli/casas/DALL_E_2025-03-25_00.24.20_-_A_rustic_mountain_house_with_wooden_walls_and_stone_chimney_surrounded_by_pine_trees_realistic_style_hiiq6h.webp",
+    price: "480,000",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/joaquin-test/image/upload/v1742883895/omyli/casas/DALL_E_2025-03-25_00.24.25_-_A_colonial-style_house_with_white_pillars_and_large_front_porch_sunny_weather_realistic_style_cwwbfd.webp",
+    price: "390,000",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/joaquin-test/image/upload/v1742883895/omyli/casas/DALL_E_2025-03-25_00.24.23_-_A_futuristic_smart_home_with_solar_panels_and_minimal_architecture_at_sunset_realistic_style_u3n4iz.webp",
+    price: "525,000",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/joaquin-test/image/upload/v1742883837/omyli/casas/DALL_E_2025-03-25_00.23.20_-_A_small_modern_cabin_in_the_woods_during_sunset_realistic_style_gkjvox.webp",
+    price: "480,000",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/joaquin-test/image/upload/v1742883836/omyli/casas/DALL_E_2025-03-25_00.23.18_-_A_luxurious_beachfront_villa_with_palm_trees_and_ocean_view_blue_sky_realistic_style_vflshw.webp",
+    price: "390,000",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/joaquin-test/image/upload/v1742883836/omyli/casas/DALL_E_2025-03-25_00.23.15_-_A_cozy_countryside_house_with_a_red_roof_trees_around_sunny_day_realistic_style_aj4czr.webp",
+    price: "525,000",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/joaquin-test/image/upload/v1742883823/omyli/casas/DALL_E_2025-03-25_00.23.22_-_A_stylish_urban_apartment_building_at_dusk_with_lights_on_realistic_style_cqpvzt.webp",
+    price: "525,000",
+  },
+];
+
+const mainImage =
+  "https://res.cloudinary.com/joaquin-test/image/upload/v1742720871/omyli/casas/main_item_ftflnb.webp";
+const secondaryIamgeOne =
+  "https://res.cloudinary.com/joaquin-test/image/upload/v1742721119/omyli/casas/secondary_item_2_k58sc2.webp";
+const secondaryIamgeTwo =
+  "https://res.cloudinary.com/joaquin-test/image/upload/v1742721119/omyli/casas/secondary_item_1_sum49y.webp";
 ---
 
 <Layout>
-	<Welcome />
+  <div class="home-container">
+    <PromoBaner />
+    <!-- MAIN PROPERTIES -->
+    <section class="section-container">
+      <h3>Recomendado para ti</h3>
+      <div class="promotions-items-container">
+        <Card
+          width="60%"
+          image={mainImage}
+          marginRight="20px"
+          price="2,000,000.00"
+        />
+        <div class="secondary-item-container">
+          <Card
+            width="100%"
+            height="100%"
+            marginBottom="10px"
+            image={secondaryIamgeOne}
+            price="2,000,000.00"
+          />
+          <Card
+            width="100%"
+            height="100%"
+            image={secondaryIamgeTwo}
+            price="2,000,000.00"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- PROPERTIES GRID -->
+    <section class="section-properties-grid-container">
+      <h3>Catálogo de propiedades</h3>
+      <div class="properties-grid-container">
+        {
+          properties.map((property) => (
+            <Card
+              height="350px"
+              image={property.image}
+              price={property.price}
+            />
+          ))
+        }
+      </div>
+    </section>
+  </div>
 </Layout>
