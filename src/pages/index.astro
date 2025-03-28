@@ -60,6 +60,11 @@ const secondaryIamgeTwo =
   "https://res.cloudinary.com/joaquin-test/image/upload/v1742721119/omyli/casas/secondary_item_1_sum49y.webp";
 ---
 
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  rel="stylesheet"
+/>
+
 <Layout>
   <div class="home-container">
     <PromoBaner />
@@ -91,9 +96,23 @@ const secondaryIamgeTwo =
       </div>
     </section>
 
-    <!-- PROPERTIES GRID -->
+    <!-- PROPERTIES GRID SECTION-->
     <section class="section-properties-grid-container">
-      <h3>Catálogo de propiedades</h3>
+      <!-- SEARCH SECTION -->
+      <div class="search-properties-container">
+        <h3>Encuentra tu siguiente inversión</h3>
+        <div class="search-properties-input-container">
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Inmuebles en Guadalajra..."
+          />
+          <span class="search-icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </span>
+        </div>
+      </div>
+      <!-- GRID -->
       <div class="properties-grid-container">
         {
           properties.map((property) => (
@@ -105,6 +124,10 @@ const secondaryIamgeTwo =
           ))
         }
       </div>
+
+      <button class="section-properties-grid-container-see-more-button">
+        Ver todos los inmuebles</button
+      >
     </section>
   </div>
 </Layout>
