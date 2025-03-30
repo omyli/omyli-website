@@ -1,0 +1,23 @@
+---
+import "../../css/servicecard.css";
+const { image, title, description, subServices, inverted } = Astro.props;
+---
+
+<!-- SERVICE -->
+<div class={`service-container ${inverted ? "reverse-items" : ""}`}>
+  <!-- INFO -->
+  <div class="service-info-container">
+    <h2>{title}</h2>
+    <p>{description}</p>
+    <ul>
+      {subServices.map((subServiceTitle) => <li>{subServiceTitle}</li>)}
+    </ul>
+  </div>
+
+  <!-- IMAGE -->
+  <div
+    class={`service-image-container ${inverted ? "service-image-container-inverted" : ""}`}
+  >
+    <img src={image.src} alt="" />
+  </div>
+</div>

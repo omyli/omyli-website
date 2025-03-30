@@ -3,11 +3,53 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 2.5rem 0;
+  padding: 2.5rem 15rem;
   margin-top: 65px;
   min-height: 60vh;
 }
 
-.services-main-container h1 {
-  color: #374151;
+/* Dispositivos muy pequeños (teléfonos en orientación vertical) */
+@media only screen and (max-width: 828px) {
+  .services-main-container {
+    padding: 2.5rem 2rem;
+  }
+
+  .service-info-container h2 {
+    font-size: 2rem;
+    text-align: center;
+  }
+}
+
+/* Teléfonos en orientación horizontal (pantallas pequeñas y medianas) */
+@media only screen and (min-width: 768px) and (max-width: 829px) {
+  .services-main-container {
+    padding: 2.5rem 5rem;
+  }
+  .service-info-container {
+    padding: 0 4rem;
+  }
+  .service-info-container h2 {
+    text-align: center;
+  }
+}
+
+/* Tablets en orientación vertical (pantallas medianas) */
+@media only screen and (min-width: 830px) and (max-width: 1024px) {
+  .services-main-container {
+    padding: 2.5rem 7rem;
+  }
+}
+
+/* Tablets en orientación horizontal y laptops pequeñas (pantallas grandes) */
+@media only screen and (min-width: 1025px) and (max-width: 1440px) {
+  .services-main-container {
+    padding: 2.5rem 14rem;
+  }
+}
+
+/* Desktops grandes y pantallas grandes */
+@media only screen and (min-width: 1841px) {
+  .services-main-container {
+    padding: 2.5rem 45rem;
+  }
 }

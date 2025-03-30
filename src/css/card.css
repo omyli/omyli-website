@@ -141,7 +141,3 @@
 .card-container:hover .body-card-container {
   transform: scale(0.95);
 }
-
-/* .card-container:hover .footer-card-text {
-  transform: scale(0.99);
-} */

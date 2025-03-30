@@ -1,0 +1,129 @@
+.service-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: row;
+  width: 100%;
+  min-height: 70vh;
+  padding: 2.5rem 0;
+  /* background-color: red; */
+}
+
+.reverse-items {
+  flex-direction: row-reverse;
+}
+
+.service-info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 450px;
+  height: 450px;
+  flex: 1 1 250px;
+  /* background-color: aqua; */
+}
+
+.service-info-container h2 {
+  font-size: 3rem;
+  margin-bottom: 35px;
+}
+
+.service-info-container p {
+  font-size: 0.9rem;
+  margin-bottom: 35px;
+  max-width: 465px;
+  line-height: 1.6;
+}
+
+.service-info-container ul {
+  list-style: none; /* Quita las viñetas por defecto */
+  padding-left: 0;
+}
+
+.service-info-container ul li {
+  position: relative;
+  padding-left: 1.5em; /* espacio para el bullet */
+  margin-bottom: 10px; /* espacio entre líneas */
+  line-height: 1.5;
+  font-size: 0.8rem;
+}
+.service-info-container ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #c19b3f; /* dorado */
+  font-size: 2em;
+  line-height: 1;
+}
+
+.service-image-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex: 1 1 250px;
+  /* background-color: antiquewhite; */
+}
+
+.service-image-container-inverted {
+  justify-content: flex-start;
+}
+
+.service-image-container img {
+  /* left: 0;
+  width: 100%;
+  height: 100%; */
+  width: 450px;
+  transition: opacity 1s ease, transform 0.3s ease;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.61));
+}
+
+.service-container:hover .service-image-container img {
+  transform: scale(1.05);
+}
+
+/* Dispositivos muy pequeños (teléfonos en orientación vertical) */
+@media only screen and (max-width: 480px) {
+  .service-image-container {
+    justify-content: center;
+  }
+  .service-image-container img {
+    width: 250px;
+    margin-top: 35px;
+  }
+}
+
+/* Teléfonos en orientación horizontal (pantallas pequeñas y medianas) */
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+  .service-image-container {
+    justify-content: center;
+  }
+}
+
+/* Tablets en orientación vertical (pantallas medianas) */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .service-image-container {
+    justify-content: center;
+  }
+}
+
+/* Tablets en orientación horizontal y laptops pequeñas (pantallas grandes) */
+@media only screen and (min-width: 1024px) and (max-width: 1279px) {
+  .service-image-container {
+    justify-content: center;
+  }
+  .service-info-container {
+    max-width: 450px;
+    text-align: left;
+  }
+  .service-image-container img {
+    width: 400px;
+  }
+  .service-info-container h2 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Desktops grandes y pantallas grandes */
+@media only screen and (min-width: 1280px) {
+}

@@ -1,10 +1,66 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import ServiceCard from "../components/services/ServiceCard.astro";
+// images
+import goldenLionRigh from "../assets/golden_lion_right.png";
+import goldenJaguarLeft from "../assets/golden_jaguar_left.png";
+import goldenLionFamiliRight from "../assets/golden_lion_famili_right.png";
+import goldenLionessLeft from "../assets/golden_lioness_left.png";
+
 import "../css/services.css";
 ---
 
 <Layout>
   <div class="services-main-container">
-    <h1>SERVICES</h1>
+    <ServiceCard
+      inverted
+      title="Venta de Propiedades"
+      description="En Grupo Omyli, brindamos un servicio integral y estratégico para la venta de inmuebles, orientado a maximizar el valor de cada operación y garantizar una experiencia eficiente y segura para nuestros clientes."
+      subServices={[
+        "Tasación profesional del valor de mercado",
+        "Publicación en los principales portales inmobiliarios",
+        "Gestión de visitas y seguimiento de interesados",
+        "Asesoría legal durante todo el proceso",
+        "Cierre seguro con acompañamiento notarial",
+      ]}
+      image={goldenLionRigh}
+    />
+    <ServiceCard
+      title="Alquiler de Propiedades"
+      description="En Grupo Omyli, brindamos un servicio integral y estratégico para la venta de inmuebles, orientado a maximizar el valor de cada operación y garantizar una experiencia eficiente y segura para nuestros clientes."
+      subServices={[
+        "Selección y validación de inquilinos confiables",
+        "Redacción y firma de contratos de alquiler",
+        "Gestión mensual de cobros y depósitos",
+        "Atención y resolución de incidencias",
+        "Supervisión periódica del estado del inmueble",
+      ]}
+      image={goldenJaguarLeft}
+    />
+    <ServiceCard
+      inverted
+      title="Inversión Inmobiliaria"
+      description="En Grupo Omyli, brindamos un servicio integral y estratégico para la venta de inmuebles, orientado a maximizar el valor de cada operación y garantizar una experiencia eficiente y segura para nuestros clientes."
+      subServices={[
+        "Asesoría personalizada según tu perfil financiero",
+        "Acceso exclusivo a proyectos en preventa",
+        "Estudios de rentabilidad y plusvalía",
+        "Gestión integral de propiedades para renta",
+        "Optimización fiscal y patrimonial",
+      ]}
+      image={goldenLionFamiliRight}
+    />
+    <ServiceCard
+      title="Administración de Propiedades"
+      description="En Grupo Omyli, brindamos un servicio integral y estratégico para la venta de inmuebles, orientado a maximizar el valor de cada operación y garantizar una experiencia eficiente y segura para nuestros clientes."
+      subServices={[
+        "Pago y gestión de servicios, impuestos y seguros",
+        "Coordinación de mantenimiento y reparaciones",
+        "Atención personalizada al inquilino",
+        "Informes financieros mensuales",
+        "Supervisión de cumplimiento de contratos",
+      ]}
+      image={goldenLionessLeft}
+    />
   </div>
 </Layout>
