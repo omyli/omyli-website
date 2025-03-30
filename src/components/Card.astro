@@ -1,14 +1,60 @@
 ---
 import "../css/card.css";
-const { image, price, width, height, marginBottom, marginRight } = Astro.props;
+const { property, width, height, marginBottom, marginRight } = Astro.props;
+const {
+  image,
+  price,
+  address,
+  toiled,
+  bedroom,
+  type,
+  parking,
+  status,
+  landSquareMeters,
+  builtSquareMeters,
+} = property;
 ---
+
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  rel="stylesheet"
+/>
 
 <div
   class="card-container"
-  style={`width: ${width}; height: ${height}; margin-bottom: ${marginBottom}; margin-right: ${marginRight};`}
+  style={`width: ${width}; 
+  height: ${height}; 
+  margin-bottom: ${marginBottom}; 
+  margin-right: ${marginRight};`}
 >
   <img src={image} alt="" />
   <div class="card-content">
-    <span>${price} MXN</span>
+    <!-- STATUS TAG -->
+    <div class="status-tag-container">
+      <span class="status-tag-text">{status}</span>
+    </div>
+
+    <!-- BODY -->
+    <div class="body-card-container">
+      <span class="card-property-price">${price} MXN</span>
+    </div>
+
+    <!-- FOOTER CARD -->
+    <div class="footer-card-container">
+      <div class="footer-card-container-address">
+        <p class="footer-card-text">{address}</p>
+        <p class="footer-card-text">
+          {
+            `${landSquareMeters}m² Terreno | ${builtSquareMeters}m² Construcción`
+          }
+        </p>
+        <ul>
+          <li><i class="fa-solid fa-tags"></i> {type}</li>
+          <li><i class="fa-solid fa-bed"></i> {bedroom}</li>
+          <li><i class="fa-solid fa-toilet"></i> {toiled}</li>
+          <li><i class="fa-solid fa-car"></i> {parking}</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
