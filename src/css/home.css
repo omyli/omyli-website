@@ -40,7 +40,7 @@
   width: 100%;
   min-height: 500px;
   margin-top: 25px;
-  margin-bottom: 15px;
+  margin-bottom: 45px;
   /* background-color: aquamarine; */
 }
 
@@ -54,7 +54,7 @@
 .properties-grid-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 50px;
   justify-content: flex-start;
   align-items: flex-start;
   width: 100%;
@@ -70,7 +70,7 @@
   justify-content: center;
   width: 100%;
   /* margin: 2rem auto; */
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .search-properties-container h3 {
