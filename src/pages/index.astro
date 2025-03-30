@@ -153,28 +153,30 @@ const secondaryIamgeTwo =
     <section class="section-container">
       <h3>Recomendado para ti</h3>
       <div class="promotions-items-container">
-        <Card
-          width="60%"
-          marginRight="20px"
-          property={{
-            price: "2,000,000.00",
-            image: mainImage,
-            address:
-              "Calle Rio Nilo 1518 colonia Quinta Velarde en Guadalajara, Jalisco.",
-            toiled: 2,
-            bedroom: 3,
-            type: "departamento",
-            parking: 2,
-            status: "venta",
-            landSquareMeters: 113,
-            builtSquareMeters: 90,
-          }}
-        />
+        <div class="main-item-container">
+          <Card
+            width="100%"
+            height="100%"
+            property={{
+              price: "2,000,000.00",
+              image: mainImage,
+              address:
+                "Calle Rio Nilo 1518 colonia Quinta Velarde en Guadalajara, Jalisco.",
+              toiled: 2,
+              bedroom: 3,
+              type: "departamento",
+              parking: 2,
+              status: "venta",
+              landSquareMeters: 113,
+              builtSquareMeters: 90,
+            }}
+          />
+        </div>
         <div class="secondary-item-container">
           <Card
             width="100%"
             height="100%"
-            marginBottom="10px"
+            marginBottom="25px"
             property={{
               price: "2,000,000.00",
               image: secondaryIamgeOne,
