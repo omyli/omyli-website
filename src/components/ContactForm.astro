@@ -1,0 +1,32 @@
+---
+import DropDown from "./DropDown.astro";
+import "../css/contactform.css";
+---
+
+<div class="contact-form-container">
+  <form action="">
+    <!-- NAME -->
+    <label for="nombre">Nombre</label>
+    <input id="nombre" name="name" type="text" />
+    <!-- EMAIL -->
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" />
+    <!-- SERVICIO -->
+    <label for="servicio">Servicios</label>
+    <select id="servicio" name="service">
+      <option value="venta de propiedades">Venta de propiedades</option>
+      <option value="alquiler de propiedades">Alquiler de propiedades</option>
+      <option value="inversion inmobiliaria">Inversión Inmobiliaria</option>
+      <option value="administración de propiedades"
+        >Administración de Propiedades</option
+      >
+    </select>
+    <!-- TELEFONO -->
+    <label for="phone">Teléfono</label>
+    <input id="phone" name="phone" type="text" />
+    <!-- MENSAGE -->
+    <label for="phone">Mensaje</label>
+    <textarea id="phone" name="phone"></textarea>
+    <button type="submit">Enviar mensajes</button>
+  </form>
+</div>

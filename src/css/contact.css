@@ -3,11 +3,59 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 2.5rem 0;
+  padding: 2.5rem 15rem;
   margin-top: 65px;
   min-height: 60vh;
 }
 
-.contact-main-container h1 {
+.contact-main-container .contact-form-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.contact-main-container .contact-form-container h3 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #c19b3f;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.contact-main-container .contact-form-container p {
+  font-size: 0.9rem;
   color: #374151;
+}
+
+/* Dispositivos muy pequeños (teléfonos en orientación vertical) */
+@media only screen and (max-width: 828px) {
+  .contact-main-container {
+    padding: 2.5rem 2rem;
+  }
+
+  .service-info-container h2 {
+    font-size: 2rem;
+    text-align: center;
+  }
+}
+
+/* Teléfonos en orientación horizontal (pantallas pequeñas y medianas) */
+@media only screen and (min-width: 768px) and (max-width: 829px) {
+  .contact-main-containerr {
+    padding: 2.5rem 5rem;
+  }
+}
+
+/* Tablets en orientación vertical (pantallas medianas) */
+@media only screen and (min-width: 830px) and (max-width: 1024px) {
+  .contact-main-container {
+    padding: 2.5rem 7rem;
+  }
+}
+
+/* Tablets en orientación horizontal y laptops pequeñas (pantallas grandes) */
+@media only screen and (min-width: 1025px) and (max-width: 1440px) {
+  .contact-main-container {
+    padding: 2.5rem 14rem;
+  }
 }

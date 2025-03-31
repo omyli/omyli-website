@@ -1,0 +1,8 @@
+.dropdown-container {
+  padding: 0.5rem 0.75rem;
+  background-color: aquamarine;
+}
+
+.dropdown-container select {
+  padding: 0;
+}

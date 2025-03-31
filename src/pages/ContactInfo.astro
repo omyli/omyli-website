@@ -1,10 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import ContactForm from "../components/ContactForm.astro";
 import "../css/contact.css";
 ---
 
 <Layout>
   <div class="contact-main-container">
-    <h1>CONTACT</h1>
+    <div class="contact-form-container">
+      <h3>Contáctanos</h3>
+      <p>Déjenos tus datos y un asesor te contactará a la brevedad.</p>
+      <ContactForm />
+    </div>
   </div>
 </Layout>

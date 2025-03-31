@@ -8,6 +8,25 @@
   min-height: 60vh;
 }
 
+.contact-form-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+}
+
+.contact-form-container h3 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #c19b3f;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.contact-form-container p {
+  font-size: 0.9rem;
+  color: #374151;
+}
+
 /* Dispositivos muy pequeños (teléfonos en orientación vertical) */
 @media only screen and (max-width: 828px) {
   .services-main-container {
