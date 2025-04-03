@@ -74,6 +74,14 @@ video {
   color: #1e212b;
 }
 
+html,
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
 table,
 tbody,
 tfoot,

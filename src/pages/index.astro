@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
+import PropertyCard from "../components/PropertyCard.astro";
 import PromoBaner from "../components/PromoBaner.astro";
 import "../css/home.css";
 
@@ -154,7 +154,7 @@ const secondaryIamgeTwo =
       <h3>Recomendado para ti</h3>
       <div class="promotions-items-container">
         <div class="main-item-container">
-          <Card
+          <PropertyCard
             width="100%"
             height="100%"
             property={{
@@ -173,7 +173,7 @@ const secondaryIamgeTwo =
           />
         </div>
         <div class="secondary-item-container">
-          <Card
+          <PropertyCard
             width="100%"
             height="100%"
             marginBottom="25px"
@@ -191,7 +191,7 @@ const secondaryIamgeTwo =
               builtSquareMeters: 90,
             }}
           />
-          <Card
+          <PropertyCard
             width="100%"
             height="100%"
             property={{
@@ -232,7 +232,7 @@ const secondaryIamgeTwo =
       <div class="properties-grid-container">
         {
           properties.map((property) => (
-            <Card height="350px" property={property} />
+            <PropertyCard height="350px" property={property} />
           ))
         }
       </div>

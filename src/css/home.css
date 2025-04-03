@@ -158,3 +158,8 @@
 }
 @media only screen and (min-width: 1280px) {
 }
+@media only screen and (min-width: 1580px) {
+  .home-container {
+    max-width: 1200px;
+  }
+}

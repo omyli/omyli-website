@@ -1,0 +1,28 @@
+---
+import "../css/entryblogcard.css";
+const { blogItem } = Astro.props;
+const { id, image, title, autor, creationDate, summary } = blogItem;
+
+const mes = creationDate.getMonth() + 1; // getMonth() devuelve de 0 a 11
+const dia = creationDate.getDate();
+const anio = creationDate.getFullYear();
+
+const fechaFormateada = `${mes}/${dia}/${anio}`;
+---
+
+<div class="entry-blog-card-container">
+  <!-- IMAGE -->
+  <div class="image-container">
+    <img src={image} alt="" />
+  </div>
+  <!-- INFO -->
+  <div class="info-container">
+    <p class="info-container-title">{title}</p>
+
+    <div class="sub-info-container">
+      <p class="info-container-subtitle">Por {autor} · {fechaFormateada}</p>
+      <p class="info-container-summary">{summary}...</p>
+      <button class="info-container-buttton">Leer más...</button>
+    </div>
+  </div>
+</div>

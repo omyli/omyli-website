@@ -1,10 +1,38 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import EntryBlogCard from "../components/EntryBlogCard.astro";
 import "../css/blog.css";
+
+const blogItem = {
+  title: "Cómo mejorar tu productividad",
+  autor: "Joaquin Coronado",
+  creationDate: new Date(),
+  summary:
+    "Te comparto 5 hábitos que me han ayudado a ser más productivo trabajando desde casa",
+  image:
+    "https://res.cloudinary.com/joaquin-test/image/upload/v1743659339/omyli/blog/image_bog_dos_gzihdx.png",
+};
 ---
 
 <Layout>
   <div class="blog-main-container">
-    <h1>BLOG</h1>
+    <div class="blog-header-container">
+      <h1>Omyli BLOG</h1>
+      <h2>Las noticias más relevantes en el sector inmobiliario</h2>
+    </div>
+    <div class="blog-content-container">
+      <EntryBlogCard blogItem={blogItem} />
+      <EntryBlogCard blogItem={blogItem} />
+      <EntryBlogCard blogItem={blogItem} />
+      <EntryBlogCard blogItem={blogItem} />
+      <EntryBlogCard blogItem={blogItem} />
+      <EntryBlogCard blogItem={blogItem} />
+      <EntryBlogCard blogItem={blogItem} />
+      <EntryBlogCard blogItem={blogItem} />
+      <EntryBlogCard blogItem={blogItem} />
+      <EntryBlogCard blogItem={blogItem} />
+      <EntryBlogCard blogItem={blogItem} />
+      <EntryBlogCard blogItem={blogItem} />
+    </div>
   </div>
 </Layout>
