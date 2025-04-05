@@ -4,7 +4,6 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
-  /* background-color: aqua; */
 }
 
 .contact-form-container form {
@@ -12,8 +11,6 @@
   flex-direction: column;
   width: 100%;
   max-width: 512px;
-  padding: 1rem 1.5rem;
-  /* background-color: bisque; */
 }
 
 .contact-form-container form input {

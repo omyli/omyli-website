@@ -1,32 +1,32 @@
 .logo-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    background-color: transparent;
-    width: auto;
-    /* padding-right: 10px; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: transparent;
+  width: auto;
+  /* padding-right: 10px; */
 }
 
 .logo-container span {
-    margin-left: 5px;
-    /* font-family: "Inter", sans-serif; */
-    font-family: "Big Shoulders", sans-serif;;
-    font-size: 1rem;
-    font-weight: 700;
-    color: #bfa641;
-    text-transform: uppercase;
+  margin-left: 5px;
+  /* font-family: "Inter", sans-serif; */
+  font-family: "Big Shoulders", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #bfa641;
+  text-transform: uppercase;
 }
 
 .logo-image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    background-color: transparent;
-    border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 25px;
 }
 
 .logo-image-container img {
-    width: 45px;
+  width: 45px;
 }

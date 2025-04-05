@@ -131,6 +131,34 @@ const properties = [
     landSquareMeters: 113,
     builtSquareMeters: 90,
   },
+  {
+    image:
+      "https://res.cloudinary.com/joaquin-test/image/upload/v1742883897/omyli/casas/DALL_E_2025-03-25_00.24.21_-_A_Mediterranean_style_villa_with_terracotta_roof_palm_trees_and_courtyard_sunny_day_realistic_style_lk1vlf.webp",
+    price: "250,000",
+    address:
+      "Calle Rio Nilo 1518 colonia Quinta Velarde en Guadalajara, Jalisco.",
+    toiled: 2,
+    bedroom: 3,
+    type: "departamento",
+    parking: 2,
+    status: "venta",
+    landSquareMeters: 113,
+    builtSquareMeters: 90,
+  },
+  {
+    image:
+      "https://res.cloudinary.com/joaquin-test/image/upload/v1742883837/omyli/casas/DALL_E_2025-03-25_00.23.20_-_A_small_modern_cabin_in_the_woods_during_sunset_realistic_style_gkjvox.webp",
+    price: "480,000",
+    address:
+      "Calle Rio Nilo 1518 colonia Quinta Velarde en Guadalajara, Jalisco.",
+    toiled: 2,
+    bedroom: 3,
+    type: "departamento",
+    parking: 2,
+    status: "venta",
+    landSquareMeters: 113,
+    builtSquareMeters: 90,
+  },
 ];
 
 const mainImage =
@@ -232,7 +260,13 @@ const secondaryIamgeTwo =
       <div class="properties-grid-container">
         {
           properties.map((property) => (
-            <PropertyCard height="350px" property={property} />
+            <PropertyCard
+              property={property}
+              flexGrow={1}
+              flexShrink={1}
+              flexBasis="410px"
+              height="480px"
+            />
           ))
         }
       </div>

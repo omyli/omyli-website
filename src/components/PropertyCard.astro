@@ -1,6 +1,15 @@
 ---
 import "../css/card.css";
-const { property, width, height, marginBottom, marginRight } = Astro.props;
+const {
+  property,
+  width,
+  height,
+  marginBottom,
+  marginRight,
+  flexGrow = 1,
+  flexShrink = 1,
+  flexBasis = "250px",
+} = Astro.props;
 const {
   image,
   price,
@@ -25,7 +34,10 @@ const {
   style={`width: ${width}; 
   height: ${height}; 
   margin-bottom: ${marginBottom}; 
-  margin-right: ${marginRight};`}
+  margin-right: ${marginRight};
+  flex-grow: ${flexGrow};
+  flex-shrink: ${flexShrink};
+  flex-basis: ${flexBasis};`}
 >
   <img src={image} alt="" />
   <div class="card-content">

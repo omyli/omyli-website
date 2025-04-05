@@ -6,10 +6,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 3rem;
+  padding: 1rem 3rem;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  z-index: 4;
+  z-index: 1;
 }
 
 .desktop-navbar ul {
@@ -20,7 +20,7 @@
   padding: 0;
 }
 .desktop-navbar ul li a {
-  font-size: 1rem;
+  font-size: 1.2rem;
   text-decoration: none;
   font-weight: 500;
   color: #374151;
