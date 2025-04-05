@@ -1,4 +1,5 @@
-import node from '@astrojs/node';
+// import node from '@astrojs/node';
+import netlify from '@astrojs/netlify';
 // @ts-check
 import { defineConfig } from 'astro/config';
 
@@ -8,5 +9,6 @@ export default defineConfig({
   server: {
     host: true,
   },
-  adapter: node({ mode: 'standalone' }),
+  // adapter: node({ mode: 'standalone' }),
+  adapter: netlify(),
 });
