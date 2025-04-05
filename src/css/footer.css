@@ -61,7 +61,6 @@
   margin-right: 25px;
   padding-top: 35px;
   height: auto;
-  /* background-color: #d4af37; */
 }
 
 .footer-info-item h4 {
@@ -108,9 +107,6 @@
 
 /* Dispositivos muy pequeños (teléfonos en orientación vertical) */
 @media only screen and (max-width: 480px) {
-  .footer-info-container {
-    flex-direction: column;
-  }
   .footer-info-item-logo {
     width: 100%;
     flex: 1 1 0px;
