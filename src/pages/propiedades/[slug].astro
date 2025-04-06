@@ -1,0 +1,21 @@
+---
+import { listAllProperties } from "../../api/propertiesApi";
+import { standarPriceFormatter } from "../../service/formatterUtils";
+
+export async function getStaticPaths() {
+  const response = await listAllProperties();
+  const properties = response.status === 200 ? response.data : [];
+  return properties.map((property: any) => ({
+    params: { slug: property.slug },
+    props: { ...property },
+  }));
+}
+const { id, formattedAddress, price, mainImage } = Astro.props;
+---
+
+<div>
+  <h1>{id}</h1>
+  <p>{standarPriceFormatter(price)}</p>
+  <p>{formattedAddress}</p>
+  <img src={mainImage} alt="" style="width: 540px;" />
+</div>

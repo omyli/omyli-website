@@ -140,3 +140,8 @@
 .card-container:hover .body-card-container {
   transform: scale(0.95);
 }
+
+.card-link-wrapper {
+  text-decoration: none;
+  color: inherit;
+}
