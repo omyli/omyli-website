@@ -1,6 +1,8 @@
 ---
+import Layout from "../../layouts/Layout.astro";
 import { listAllProperties } from "../../api/propertiesApi";
 import { standarPriceFormatter } from "../../service/formatterUtils";
+import "../../css/property.css";
 
 export async function getStaticPaths() {
   const response = await listAllProperties();
@@ -10,12 +12,145 @@ export async function getStaticPaths() {
     props: { ...property },
   }));
 }
-const { id, formattedAddress, price, mainImage } = Astro.props;
+
+const descriptionBase =
+  "Casa moderna con excelente ubicación y acabados de alta calidad, cercana a colegios, supermercados y transporte público.";
+
+const {
+  id,
+  formattedAddress,
+  price,
+  mainImage,
+  address,
+  state,
+  city,
+  neighborhood,
+  description = descriptionBase,
+  toilet,
+  bedroom,
+  parking,
+  landSquareMeters,
+  builtSquareMeters,
+} = Astro.props;
+
+let imageOne =
+  "https://res.cloudinary.com/joaquin-test/image/upload/v1742883895/omyli/casas/DALL_E_2025-03-25_00.24.23_-_A_futuristic_smart_home_with_solar_panels_and_minimal_architecture_at_sunset_realistic_style_u3n4iz.webp";
+let imageTwo =
+  "https://res.cloudinary.com/joaquin-test/image/upload/v1742883896/omyli/casas/DALL_E_2025-03-25_00.24.27_-_A_traditional_Japanese_house_with_sliding_doors_wooden_deck_and_zen_garden_realistic_style_bns7zi.webp";
 ---
 
-<div>
-  <h1>{id}</h1>
-  <p>{standarPriceFormatter(price)}</p>
-  <p>{formattedAddress}</p>
-  <img src={mainImage} alt="" style="width: 540px;" />
-</div>
+<Layout>
+  <div class="property-main-container">
+    <!-- DATA ECTION -->
+    <main class="property-data-section-container">
+      <!-- GALLERY -->
+      <div class="property-data-serction_images-container">
+        <div
+          class="property-data-section_images-selected-image-container blur-background"
+        >
+          <img
+            id="mainImage"
+            data-src={mainImage}
+            src={mainImage}
+            alt="Imagen de la propiedad"
+          />
+        </div>
+        <div class="thumbnails">
+          <img class="thumbnail" data-src={mainImage} src={mainImage} />
+          <img class="thumbnail" data-src={imageOne} src={imageOne} />
+          <img class="thumbnail" data-src={imageTwo} src={imageTwo} />
+        </div>
+      </div>
+      <!-- DESCRIPTION -->
+      <div class="property-data-serction_description-container">
+        <h2>Descripción</h2>
+        <p>{description}</p>
+      </div>
+      <!-- FIELDS -->
+      <div class="property-data-serction_fields-container">
+        <h2>Características</h2>
+        <ul class="features-list">
+          <li><i class="fas fa-bath"></i> Baños: 2</li>
+          <li><i class="fas fa-bed"></i> Habitaciones: 3</li>
+          <li><i class="fas fa-car"></i> Estacionamiento: 2</li>
+          <li><i class="fas fa-vector-square"></i> Terreno: 113 m²</li>
+          <li><i class="fas fa-ruler-combined"></i> Construcción: 90 m²</li>
+        </ul>
+      </div>
+      <!-- UBICATION -->
+      <div class="property-data-serction_ubication-container">
+        <h2>Ubicación</h2>
+        <iframe
+          src="https://maps.google.com/maps?q=Quinta%20Velarde%2C%20Guadalajara%20Jalisco&t=&z=13&ie=UTF8&iwloc=&output=embed"
+        ></iframe>
+      </div>
+      <!-- CONTACT -->
+      <div class="property-data-serction_contact-container">
+        <h2>Contacto</h2>
+        <input type="text" placeholder="Tu nombre" />
+        <input type="email" placeholder="Correo electrónico" />
+        <textarea placeholder="Mensaje"></textarea>
+        <button>Enviar mensaje</button>
+      </div>
+    </main>
+    <!-- SIDE BAR SECTION -->
+    <aside class="property-sidebar-container">
+      <div class="sidebar">
+        <h2 style="margin-top: 0; color: #616a87;">
+          {standarPriceFormatter(price)}
+        </h2>
+        <h1><strong>{formattedAddress}</strong></h1>
+        <li>
+          <i class="fas fa-map-marker-alt"></i> Dirección: Calle Rio Nilo 1518
+        </li>
+        <li><i class="fas fa-home"></i> Colonia: Quinta Velarde</li>
+        <li><i class="fas fa-city"></i> Ciudad: Guadalajara</li>
+        <li><i class="fas fa-flag"></i> Estado: Jalisco</li>
+        <button>Agendar visita</button>
+      </div>
+    </aside>
+    <!-- IMAGE MODAL -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+      <span class="modal-close" id="modalCloseButton">&times;</span>
+      <img class="modal-content" id="modalImage" />
+    </div>
+  </div>
+  <script is:browser>
+    window.addEventListener("DOMContentLoaded", () => {
+      const thumbnails = document.querySelectorAll(".thumbnail");
+      const mainImage = document.getElementById("mainImage");
+
+      thumbnails.forEach((thumbnail) => {
+        thumbnail.addEventListener("click", () => {
+          const newSrc = thumbnail.getAttribute("data-src");
+          mainImage.classList.add("fade");
+          setTimeout(() => {
+            mainImage.src = newSrc;
+            mainImage.setAttribute("data-src", newSrc);
+            mainImage.classList.remove("fade");
+          }, 150);
+        });
+      });
+
+      const imageModal = document.getElementById("imageModal");
+      const modalImage = document.getElementById("modalImage");
+      mainImage.addEventListener("click", () => {
+        modalImage.src = mainImage.getAttribute("data-src");
+        imageModal.style.display = "flex";
+      });
+
+      const closeModalFunction = () => {
+        imageModal.style.display = "none";
+      };
+
+      modalCloseButton.addEventListener("click", closeModalFunction);
+
+      imageModal.addEventListener("click", closeModalFunction);
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          closeModalFunction();
+        }
+      });
+    });
+  </script>
+</Layout>
