@@ -1,5 +1,3 @@
-import Splide from "@splidejs/splide";
-
 window.addEventListener("DOMContentLoaded", () => {
   const main = new Splide("#main-slider", {
     type: 'fade',
