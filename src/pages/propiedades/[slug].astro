@@ -2,7 +2,9 @@
 import Layout from "../../layouts/Layout.astro";
 import { listAllProperties } from "../../api/propertiesApi";
 import { standarPriceFormatter } from "../../service/formatterUtils";
+import "@splidejs/splide/dist/css/splide.min.css";
 import "../../css/property.css";
+import Carousel from "../../components/Carousel/Carousel.astro";
 
 export async function getStaticPaths() {
   const response = await listAllProperties();
@@ -21,6 +23,7 @@ const {
   formattedAddress,
   price,
   mainImage,
+  images,
   address,
   state,
   city,
@@ -33,10 +36,7 @@ const {
   builtSquareMeters,
 } = Astro.props;
 
-let imageOne =
-  "https://res.cloudinary.com/joaquin-test/image/upload/v1742883895/omyli/casas/DALL_E_2025-03-25_00.24.23_-_A_futuristic_smart_home_with_solar_panels_and_minimal_architecture_at_sunset_realistic_style_u3n4iz.webp";
-let imageTwo =
-  "https://res.cloudinary.com/joaquin-test/image/upload/v1742883896/omyli/casas/DALL_E_2025-03-25_00.24.27_-_A_traditional_Japanese_house_with_sliding_doors_wooden_deck_and_zen_garden_realistic_style_bns7zi.webp";
+const mapEmbedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(formattedAddress)}&t=&z=17&ie=UTF8&iwloc=&output=embed`;
 ---
 
 <Layout>
@@ -45,21 +45,7 @@ let imageTwo =
     <main class="property-data-section-container">
       <!-- GALLERY -->
       <div class="property-data-serction_images-container">
-        <div
-          class="property-data-section_images-selected-image-container blur-background"
-        >
-          <img
-            id="mainImage"
-            data-src={mainImage}
-            src={mainImage}
-            alt="Imagen de la propiedad"
-          />
-        </div>
-        <div class="thumbnails">
-          <img class="thumbnail" data-src={mainImage} src={mainImage} />
-          <img class="thumbnail" data-src={imageOne} src={imageOne} />
-          <img class="thumbnail" data-src={imageTwo} src={imageTwo} />
-        </div>
+        <Carousel images={[mainImage, ...images]} />
       </div>
       <!-- DESCRIPTION -->
       <div class="property-data-serction_description-container">
@@ -81,8 +67,13 @@ let imageTwo =
       <div class="property-data-serction_ubication-container">
         <h2>Ubicación</h2>
         <iframe
-          src="https://maps.google.com/maps?q=Quinta%20Velarde%2C%20Guadalajara%20Jalisco&t=&z=13&ie=UTF8&iwloc=&output=embed"
-        ></iframe>
+          src={mapEmbedUrl}
+          width="100%"
+          height="450"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       <!-- CONTACT -->
       <div class="property-data-serction_contact-container">
@@ -96,61 +87,21 @@ let imageTwo =
     <!-- SIDE BAR SECTION -->
     <aside class="property-sidebar-container">
       <div class="sidebar">
-        <h2 style="margin-top: 0; color: #616a87;">
-          {standarPriceFormatter(price)}
-        </h2>
-        <h1><strong>{formattedAddress}</strong></h1>
-        <li>
-          <i class="fas fa-map-marker-alt"></i> Dirección: Calle Rio Nilo 1518
-        </li>
-        <li><i class="fas fa-home"></i> Colonia: Quinta Velarde</li>
-        <li><i class="fas fa-city"></i> Ciudad: Guadalajara</li>
-        <li><i class="fas fa-flag"></i> Estado: Jalisco</li>
+        <div class="sidebar-price-container">
+          <h2>
+            {standarPriceFormatter(price)}
+          </h2>
+        </div>
+        <ul class="features-list">
+          <li>
+            <i class="fas fa-map-marker-alt"></i> Dirección: {address}
+          </li>
+          <li><i class="fas fa-home"></i> Colonia: {neighborhood}</li>
+          <li><i class="fas fa-city"></i> Ciudad: {city}</li>
+          <li><i class="fas fa-flag"></i> Estado: {state}</li>
+        </ul>
         <button>Agendar visita</button>
       </div>
     </aside>
-    <!-- IMAGE MODAL -->
-    <div id="imageModal" class="modal" onclick="closeModal()">
-      <span class="modal-close" id="modalCloseButton">&times;</span>
-      <img class="modal-content" id="modalImage" />
-    </div>
   </div>
-  <script is:browser>
-    window.addEventListener("DOMContentLoaded", () => {
-      const thumbnails = document.querySelectorAll(".thumbnail");
-      const mainImage = document.getElementById("mainImage");
-
-      thumbnails.forEach((thumbnail) => {
-        thumbnail.addEventListener("click", () => {
-          const newSrc = thumbnail.getAttribute("data-src");
-          mainImage.classList.add("fade");
-          setTimeout(() => {
-            mainImage.src = newSrc;
-            mainImage.setAttribute("data-src", newSrc);
-            mainImage.classList.remove("fade");
-          }, 150);
-        });
-      });
-
-      const imageModal = document.getElementById("imageModal");
-      const modalImage = document.getElementById("modalImage");
-      mainImage.addEventListener("click", () => {
-        modalImage.src = mainImage.getAttribute("data-src");
-        imageModal.style.display = "flex";
-      });
-
-      const closeModalFunction = () => {
-        imageModal.style.display = "none";
-      };
-
-      modalCloseButton.addEventListener("click", closeModalFunction);
-
-      imageModal.addEventListener("click", closeModalFunction);
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-          closeModalFunction();
-        }
-      });
-    });
-  </script>
 </Layout>

@@ -29,10 +29,7 @@
   flex-direction: column;
   justify-content: flex-start;
   height: auto;
-}
-
-.entry-blog-card-container .info-container {
-  height: auto;
+  background-color: #ffffff;
   padding: 1rem;
 }
 

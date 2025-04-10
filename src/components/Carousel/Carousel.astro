@@ -1,0 +1,41 @@
+---
+import "./carousel.css";
+const { images } = Astro.props;
+---
+
+<!-- GALLERY -->
+<div class="carousel-main-container">
+  <!-- MAIN SLIDER -->
+  <div class="splide" id="main-slider">
+    <div class="splide__track">
+      <ul id="ma" class="splide__list">
+        {
+          images.map((imageItem: string) => (
+            <li class="splide__slide">
+              <img
+                data-src={imageItem}
+                src={imageItem}
+                alt="Imagen secundaria 1"
+              />
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+  <!-- THUMNAIL -->
+  <div class="splide" id="thumbnail-slider">
+    <div class="splide__track">
+      <ul class="splide__list">
+        {
+          images.map((imageItem: string) => (
+            <li class="splide__slide">
+              <img src={imageItem} />
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</div>
+<script type="module" src="/src/components/Carousel/splide-init.js"></script>
