@@ -7,14 +7,13 @@
 
 /* SPLIDE */
 #main-slider {
-  max-width: 900px;
+  width: 100%;
   margin-bottom: 10px;
 }
 #main-slider .splide__track {
-  max-width: 900px;
+  width: 100%;
   background-color: #f4f4f4;
   border-radius: 6px;
-  /* cursor: zoom-in; */
 }
 
 #thumbnail-slider {

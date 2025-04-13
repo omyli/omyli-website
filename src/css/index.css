@@ -100,24 +100,58 @@ td {
   background: transparent;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 .container {
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
+  width: 100%;
+  margin-left: 25px;
+  margin-right: 25px;
+  max-width: 1600px; /* valor base para ultra-wide */
 }
-@media (min-width: 768px) {
+
+/* ≥ 1920px */
+@media (max-width: 1919px) {
   .container {
-    width: 750px;
+    max-width: 1440px;
   }
 }
-@media (min-width: 992px) {
+
+/* ≤ 1535px */
+@media (max-width: 1535px) {
   .container {
-    width: 970px;
+    max-width: 1280px;
   }
 }
-@media (min-width: 1200px) {
+
+/* ≤ 1279px */
+@media (max-width: 1279px) {
   .container {
-    width: 1170px;
+    max-width: calc(1024px - 54px);
+  }
+}
+
+/* ≤ 1023px */
+@media (max-width: 1023px) {
+  .container {
+    /* max-width: 768px; */
+    max-width: calc(768px - 54px);
+  }
+}
+
+/* ≤ 767px */
+@media (max-width: 767px) {
+  .container {
+    /* max-width: 640px; */
+    max-width: calc(640px - 54px);
+  }
+}
+
+/* ≤ 639px */
+@media (max-width: 639px) {
+  .container {
+    /* max-width: 100%; */
+    max-width: calc(100% - 15px);
   }
 }

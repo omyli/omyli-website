@@ -41,10 +41,40 @@ const { images } = Astro.props;
 <script
   src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"
 ></script>
-<script type="module" src="/scripts/splide-init.js"></script>
+<!-- <script type="module" src="/scripts/splide-init.js"></script> -->
+
 <script type="module">
-  import "/src/components/Carousel/splide-init.js";
-</script>
-<script type="module">
-  import "/src/scripts/splide-init.js";
+  window.addEventListener("DOMContentLoaded", () => {
+    const main = new Splide("#main-slider", {
+      type: "fade",
+      heightRatio: 0.5,
+      pagination: false,
+      arrows: true,
+      cover: false,
+      breakpoints: {
+        639: {
+          heightRatio: 0.5,
+        },
+      },
+    });
+
+    const thumbnails = new Splide("#thumbnail-slider", {
+      fixedWidth: 100,
+      height: 100,
+      isNavigation: true,
+      gap: 10,
+      focus: "number",
+      pagination: false,
+      cover: true,
+      arrows: false,
+      breakpoints: {
+        639: {
+          fixedWidth: 90,
+          height: 70,
+        },
+      },
+    }).mount();
+
+    main.sync(thumbnails).mount();
+  });
 </script>

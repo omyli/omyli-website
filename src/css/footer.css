@@ -3,13 +3,11 @@
   height: auto;
 }
 .footer-botom-container {
-  padding: 1.5rem 3rem;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: auto;
-  height: auto;
+  width: 100%;
   background-color: #1e212b;
 }
 
@@ -17,17 +15,16 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 0.5rem 3rem;
+  /* padding: 0.5rem 1rem; */
   padding-bottom: 3rem;
-  width: auto;
-  height: auto;
+  width: 100%;
   background-color: #323748;
   flex: 1 1 250px;
 }
 
-/* .footer-info-container div:last-child {
-  margin-right: 0;
-} */
+.footer-info-container div:last-child {
+  /* margin-left: 25px; */
+}
 
 .footer-info-item-logo {
   display: flex;
@@ -37,6 +34,8 @@
   width: 30%;
   /* margin-right: 200px; */
   font-size: 1.25rem;
+  margin-left: 25px;
+  margin-right: 25px;
   flex: 1 1 250px;
 }
 
@@ -90,9 +89,11 @@
 .footer-botom-container span {
   font-size: 1rem;
   color: #f9f4f5;
+  margin-left: 25px;
 }
 .social-icons {
   color: #f9f4f5;
+  margin: 25px;
 }
 .social-icons i {
   margin-left: 1rem;
@@ -109,7 +110,7 @@
 @media only screen and (max-width: 480px) {
   .footer-info-item-logo {
     width: 100%;
-    flex: 1 1 0px;
+    flex: 1 1 250px;
     margin-bottom: 25px;
     display: flex;
     justify-content: center;
@@ -129,10 +130,12 @@
     width: 100%;
   }
   .footer-botom-container {
+    padding-top: 1rem;
     flex-direction: column;
   }
   .social-icons {
     margin-top: 25px;
+    margin-bottom: 25px;
   }
 }
 
@@ -147,8 +150,9 @@
     align-items: center;
     text-align: center;
     width: 100%;
-    flex: 1 1 0px;
+    flex: 1 1 0;
     margin-bottom: 25px;
+    margin-left: 0;
   }
   .footer-info-items-container {
     display: flex;
@@ -157,6 +161,9 @@
     width: 100%;
     flex-direction: column;
     text-align: center;
+  }
+  .footer-botom-container {
+    /* padding: 1rem; */
   }
 }
 
@@ -167,12 +174,16 @@
   }
   .footer-info-item-logo {
     width: 100%;
-    flex: 1 1 0px;
+    flex: 1 1 0;
     margin-bottom: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: left;
+    margin-left: 0;
+  }
+  .footer-info-item-logo {
+    text-align: center;
   }
   .footer-info-items-container {
     display: flex;

@@ -1,0 +1,22 @@
+---
+import { standarPriceFormatter } from "../service/formatterUtils";
+import "../css/adressasidecard.css";
+const { price, address, neighborhood, city, state, sticky } = Astro.props;
+---
+
+<div class="sidebar" style={sticky ? "position: sticky;" : ""}>
+  <div class="sidebar-price-container">
+    <h2>
+      {standarPriceFormatter(price)}
+    </h2>
+  </div>
+  <ul class="features-list">
+    <li>
+      <i class="fas fa-map-marker-alt"></i>{address}
+    </li>
+    <li><i class="fas fa-home"></i>{neighborhood}</li>
+    <li><i class="fas fa-city"></i>{city}</li>
+    <li><i class="fas fa-flag"></i>{state}</li>
+  </ul>
+  <button>Agendar visita</button>
+</div>

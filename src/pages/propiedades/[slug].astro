@@ -5,6 +5,7 @@ import { standarPriceFormatter } from "../../service/formatterUtils";
 import "@splidejs/splide/dist/css/splide.min.css";
 import "../../css/property.css";
 import Carousel from "../../components/Carousel/Carousel.astro";
+import AddreesAsideCard from "../../components/AddreesAsideCard.astro";
 
 export async function getStaticPaths() {
   const response = await listAllProperties();
@@ -40,13 +41,24 @@ const mapEmbedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(formatt
 ---
 
 <Layout>
-  <div class="property-main-container">
+  <div class="container property-main-container">
     <!-- DATA ECTION -->
-    <main class="property-data-section-container">
+    <div class="property-data-section-container">
       <!-- GALLERY -->
       <div class="property-data-serction_images-container">
         <Carousel images={[mainImage, ...images]} />
       </div>
+      <div class="property-data-section_address-container">
+        <AddreesAsideCard
+          price={price}
+          address={address}
+          neighborhood={neighborhood}
+          city={city}
+          state={state}
+          sticky={false}
+        />
+      </div>
+
       <!-- DESCRIPTION -->
       <div class="property-data-serction_description-container">
         <h2>Descripción</h2>
@@ -56,11 +68,17 @@ const mapEmbedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(formatt
       <div class="property-data-serction_fields-container">
         <h2>Características</h2>
         <ul class="features-list">
-          <li><i class="fas fa-bath"></i> Baños: 2</li>
-          <li><i class="fas fa-bed"></i> Habitaciones: 3</li>
-          <li><i class="fas fa-car"></i> Estacionamiento: 2</li>
-          <li><i class="fas fa-vector-square"></i> Terreno: 113 m²</li>
-          <li><i class="fas fa-ruler-combined"></i> Construcción: 90 m²</li>
+          <li><i class="fas fa-bath"></i> Baños: {toilet}</li>
+          <li><i class="fas fa-bed"></i> Habitaciones: {bedroom}</li>
+          <li><i class="fas fa-car"></i> Estacionamiento: {parking}</li>
+          <li>
+            <i class="fas fa-vector-square"></i> Terreno: {landSquareMeters} m²
+          </li>
+          <li>
+            <i class="fas fa-ruler-combined"></i> Construcción: {
+              builtSquareMeters
+            } m²
+          </li>
         </ul>
       </div>
       <!-- UBICATION -->
@@ -83,24 +101,18 @@ const mapEmbedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(formatt
         <textarea placeholder="Mensaje"></textarea>
         <button>Enviar mensaje</button>
       </div>
-    </main>
+    </div>
     <!-- SIDE BAR SECTION -->
     <aside class="property-sidebar-container">
-      <div class="sidebar">
-        <div class="sidebar-price-container">
-          <h2>
-            {standarPriceFormatter(price)}
-          </h2>
-        </div>
-        <ul class="features-list">
-          <li>
-            <i class="fas fa-map-marker-alt"></i> Dirección: {address}
-          </li>
-          <li><i class="fas fa-home"></i> Colonia: {neighborhood}</li>
-          <li><i class="fas fa-city"></i> Ciudad: {city}</li>
-          <li><i class="fas fa-flag"></i> Estado: {state}</li>
-        </ul>
-        <button>Agendar visita</button>
+      <div class="property-sidebar_address-card-aside">
+        <AddreesAsideCard
+          price={price}
+          address={address}
+          neighborhood={neighborhood}
+          city={city}
+          state={state}
+          sticky
+        />
       </div>
     </aside>
   </div>
