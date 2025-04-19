@@ -1,0 +1,48 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PropertyCard from "../../components/PropertyCard.astro";
+import { listAllProperties } from "../../api/propertiesApi";
+import "../../css/buscador.css";
+
+const response = await listAllProperties();
+const properties = response.status === 200 ? response.data : [];
+---
+
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  rel="stylesheet"
+/>
+<Layout>
+  <div class="container properties-search-main-container">
+    <!-- SEARCH -->
+    <div class="search-header-container">
+      <h1>Encuentra tu siguiente inversión</h1>
+      <div class="search-header_inputs-container">
+        <input
+          type="text"
+          class="search-input"
+          placeholder="Buscar por ciudad, estado, colonia..."
+        />
+        <button>
+          <span class="search-icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </span>
+        </button>
+      </div>
+    </div>
+    <!-- GRID -->
+    <section class="properties-grid-container">
+      {
+        properties?.map((property: any) => (
+          <PropertyCard
+            property={property}
+            flexGrow={1}
+            flexShrink={1}
+            flexBasis="350px"
+            height="480px"
+          />
+        ))
+      }
+    </section>
+  </div>
+</Layout>

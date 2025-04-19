@@ -137,6 +137,8 @@
   border-radius: 0.5rem;
   background-color: transparent;
   cursor: pointer;
+  text-decoration: none;
+  color: inherit;
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
