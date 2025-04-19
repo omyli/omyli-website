@@ -8,7 +8,6 @@
   padding: 0 15px 0 2px;
   border-radius: 8px;
   transition: all 0.2s ease;
-  width: auto;
   /* padding-right: 10px; */
 }
 .logo-container-with-hover:hover {
