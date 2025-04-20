@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import PropertyCard from './PropertyCard.tsx';
 import BeatLoader from 'react-spinners/BeatLoader';
-import { listAllProperties } from '../api/propertiesApi';
+import { searchProperties } from '../api/propertiesApi';
 import '../css/buscador.css';
 
 const SearchProeprtiesPage = () => {
@@ -10,22 +10,19 @@ const SearchProeprtiesPage = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const getAllProperties = async () => {
-      setIsLoading(true);
-      const response = await listAllProperties();
-      const properties = response.status === 200 ? response.data : [];
-      setProperties(properties);
-      setIsLoading(false);
-    };
-    getAllProperties();
+    searchPropertiesHandler();
   }, []);
 
-  const searchProperties = () => {
-    console.log('Buscando:', searchText);
+  const searchPropertiesHandler = async () => {
+    setIsLoading(true);
+    const response = await searchProperties({ searchText }, 1, 10);
+    const properties = response.status === 200 ? response.data.items : [];
+    setProperties(properties);
+    setIsLoading(false);
   };
 
   const _onClickSearchButtonHandler = (e: any) => {
-    searchProperties();
+    searchPropertiesHandler();
   };
 
   const _onSearchBarChangeHandler = (e: any) => {
@@ -35,7 +32,7 @@ const SearchProeprtiesPage = () => {
 
   const _onKeyUpSearchBarHandler = (e: any) => {
     if (e.key === 'Enter') {
-      searchProperties();
+      searchPropertiesHandler();
     }
   };
 
@@ -73,7 +70,7 @@ const SearchProeprtiesPage = () => {
               <PropertyCard
                 key={property.id}
                 property={property}
-                flexGrow={1}
+                flexGrow={0}
                 flexShrink={1}
                 flexBasis="350px"
                 height="480px"
