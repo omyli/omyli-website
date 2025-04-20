@@ -70,7 +70,7 @@ const SearchProeprtiesPage = () => {
               <PropertyCard
                 key={property.id}
                 property={property}
-                flexGrow={0}
+                flexGrow={1}
                 flexShrink={1}
                 flexBasis="350px"
                 height="480px"
