@@ -3,8 +3,8 @@ import {
   standarPriceFormatter,
   translateStatusToSpanish,
   translateTypeToSpanish,
-} from "../service/formatterUtils.js";
-import "../css/card.css";
+} from '../service/formatterUtils.js';
+import '../css/card.css';
 const {
   property,
   width,
@@ -13,7 +13,7 @@ const {
   marginRight,
   flexGrow = 1,
   flexShrink = 1,
-  flexBasis = "250px",
+  flexBasis = '250px',
 } = Astro.props;
 const {
   price,
@@ -34,11 +34,6 @@ const {
   builtSquareMeters,
 } = property;
 ---
-
-<link
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  rel="stylesheet"
-/>
 
 <a
   href={`/propiedades/${slug}`}
@@ -68,9 +63,7 @@ const {
       <div class="footer-card-container-address">
         <p class="footer-card-text">{formattedAddress}</p>
         <p class="footer-card-text">
-          {
-            `${landSquareMeters}m² Terreno | ${builtSquareMeters}m² Construcción`
-          }
+          {`${landSquareMeters}m² Terreno | ${builtSquareMeters}m² Construcción`}
         </p>
         <ul>
           <li>
