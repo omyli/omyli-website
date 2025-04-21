@@ -15,11 +15,6 @@ const properties = response.status === 200 ? response.data : [];
 const mainBannerProperties = bannerResponse.status === 200 ? bannerResponse.data : [];
 ---
 
-<link
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  rel="stylesheet"
-/>
-
 <Layout>
   <div class="container home-container">
     <PromoBaner />
@@ -48,7 +43,12 @@ const mainBannerProperties = bannerResponse.status === 200 ? bannerResponse.data
       <div class="search-properties-container">
         <h3>Encuentra tu siguiente inversión</h3>
         <div class="search-properties-input-container">
-          <input type="text" class="search-input" placeholder="Inmuebles en Guadalajara..." />
+          <input
+            id="search-property-input"
+            type="text"
+            class="search-input"
+            placeholder="Inmuebles en Guadalajara..."
+          />
           <span class="search-icon">
             <i class="fa-solid fa-magnifying-glass"></i>
           </span>
@@ -75,3 +75,17 @@ const mainBannerProperties = bannerResponse.status === 200 ? bannerResponse.data
     </section>
   </div>
 </Layout>
+
+<script>
+  const input = document.getElementById('search-property-input');
+
+  input?.addEventListener('keyup', event => {
+    if (event.key === 'Enter') {
+      const value = input.value.trim();
+      if (value) {
+        console.log('Buscar:', value);
+        window.location.href = `/propiedades/buscador?q=${encodeURIComponent(value)}`;
+      }
+    }
+  });
+</script>

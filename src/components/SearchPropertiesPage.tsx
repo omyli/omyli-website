@@ -15,10 +15,15 @@ const SearchPropertiesPage = () => {
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
 
   useEffect(() => {
-    searchPropertiesHandler(currentPage);
+    const params = new URLSearchParams(window.location.search);
+    const query = params.get('q');
+    if (query) {
+      setSearchText(query);
+    }
+    searchPropertiesHandler(currentPage, query);
   }, []);
 
-  const searchPropertiesHandler = async (page: number) => {
+  const searchPropertiesHandler = async (page: number, searchText: string | null) => {
     setIsLoading(true);
     const response = await searchProperties({ searchText }, page, 8);
     const properties = response.status === 200 ? response.data.items : [];
@@ -30,7 +35,7 @@ const SearchPropertiesPage = () => {
   };
 
   const _onClickSearchButtonHandler = (e: any) => {
-    searchPropertiesHandler(1);
+    searchPropertiesHandler(1, searchText);
   };
 
   const _onSearchBarChangeHandler = (e: any) => {
@@ -40,23 +45,23 @@ const SearchPropertiesPage = () => {
 
   const _onKeyUpSearchBarHandler = (e: any) => {
     if (e.key === 'Enter') {
-      searchPropertiesHandler(1);
+      searchPropertiesHandler(1, searchText);
     }
   };
 
   const _pageOnClickHandler = (page: number) => {
     if (page === currentPage) return;
-    searchPropertiesHandler(page);
+    searchPropertiesHandler(page, searchText);
   };
 
   const _nextPageOnclickHandler = () => {
     if (currentPage === totalPages) return;
-    searchPropertiesHandler(currentPage + 1);
+    searchPropertiesHandler(currentPage + 1, searchText);
   };
 
   const _previusPageOnClickHandler = () => {
     if (currentPage === 1) return;
-    searchPropertiesHandler(currentPage - 1);
+    searchPropertiesHandler(currentPage - 1, searchText);
   };
 
   return (
@@ -72,8 +77,9 @@ const SearchPropertiesPage = () => {
             placeholder="Buscar por ciudad, estado, colonia..."
             onChange={_onSearchBarChangeHandler}
             onKeyUp={_onKeyUpSearchBarHandler}
+            disabled={isLoading}
           />
-          <button onClick={_onClickSearchButtonHandler}>
+          <button disabled={isLoading} onClick={_onClickSearchButtonHandler}>
             <span className="search-icon">
               <i className="fa-solid fa-magnifying-glass"></i>
             </span>
@@ -115,6 +121,7 @@ const SearchPropertiesPage = () => {
 
                     return (
                       <button
+                        key={page}
                         className={classNameToButton}
                         onClick={() => _pageOnClickHandler(page)}
                       >
