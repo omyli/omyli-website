@@ -1,6 +1,6 @@
 ---
-import Logo from "../Logo.astro";
-import "../../css/header.css";
+import Logo from '../Logo.astro';
+import '../../css/header.css';
 ---
 
 <header class="header-container">
@@ -10,6 +10,7 @@ import "../../css/header.css";
   <nav class="desktop-navbar">
     <ul>
       <li><a href="/">Inicio</a></li>
+      <li><a href="/propiedades/buscador">Inmuebles</a></li>
       <li><a href="/services">Servicios</a></li>
       <li><a href="/blog">Blog</a></li>
       <li><a href="/contactInfo">Contacto</a></li>
@@ -26,6 +27,7 @@ import "../../css/header.css";
   <nav id="mobileMenu" class="mobile-navbar">
     <ul>
       <li><a href="/">Inicio</a></li>
+      <li><a href="/propiedades/buscador">Inmuebles</a></li>
       <li><a href="/services">Servicios</a></li>
       <li><a href="/blog">Blog</a></li>
       <li><a href="/contactInfo">Contacto</a></li>
@@ -34,18 +36,16 @@ import "../../css/header.css";
 </header>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener('DOMContentLoaded', () => {
     let isOpen = false;
     const toggleMenu = () => {
-      console.log("click");
+      console.log('click');
       isOpen = !isOpen;
-      document.querySelector("#mobileMenu")?.classList.toggle("open", isOpen);
-      document.querySelector("#backdrop")?.classList.toggle("show", isOpen);
+      document.querySelector('#mobileMenu')?.classList.toggle('open', isOpen);
+      document.querySelector('#backdrop')?.classList.toggle('show', isOpen);
     };
 
-    document
-      .getElementById("menuButton")
-      ?.addEventListener("click", toggleMenu);
-    document.querySelector("#backdrop")?.addEventListener("click", toggleMenu);
+    document.getElementById('menuButton')?.addEventListener('click', toggleMenu);
+    document.querySelector('#backdrop')?.addEventListener('click', toggleMenu);
   });
 </script>

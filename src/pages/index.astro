@@ -1,22 +1,18 @@
 ---
 // COMPONENTS
-import Layout from "../layouts/Layout.astro";
-import PropertyCard from "../components/PropertyCard.astro";
-import PromoBaner from "../components/PromoBaner.astro";
+import Layout from '../layouts/Layout.astro';
+import PropertyCard from '../components/PropertyCard.astro';
+import PromoBaner from '../components/PromoBaner.astro';
 // API
-import {
-  listAllProperties,
-  listPropertiesToMainBanner,
-} from "../api/propertiesApi";
+import { listAllProperties, listPropertiesToMainBanner } from '../api/propertiesApi';
 //CSS
-import "../css/home.css";
+import '../css/home.css';
 
 const response = await listAllProperties();
 const bannerResponse = await listPropertiesToMainBanner();
 
 const properties = response.status === 200 ? response.data : [];
-const mainBannerProperties =
-  bannerResponse.status === 200 ? bannerResponse.data : [];
+const mainBannerProperties = bannerResponse.status === 200 ? bannerResponse.data : [];
 ---
 
 <link
@@ -32,11 +28,7 @@ const mainBannerProperties =
       <h3>Recomendado para ti</h3>
       <div class="promotions-items-container">
         <div class="main-item-container">
-          <PropertyCard
-            width="100%"
-            height="100%"
-            property={mainBannerProperties?.[0]}
-          />
+          <PropertyCard width="100%" height="100%" property={mainBannerProperties?.[0]} />
         </div>
         <div class="secondary-item-container">
           <PropertyCard
@@ -45,11 +37,7 @@ const mainBannerProperties =
             marginBottom="25px"
             property={mainBannerProperties?.[1]}
           />
-          <PropertyCard
-            width="100%"
-            height="100%"
-            property={mainBannerProperties?.[2]}
-          />
+          <PropertyCard width="100%" height="100%" property={mainBannerProperties?.[2]} />
         </div>
       </div>
     </section>
@@ -60,11 +48,7 @@ const mainBannerProperties =
       <div class="search-properties-container">
         <h3>Encuentra tu siguiente inversión</h3>
         <div class="search-properties-input-container">
-          <input
-            type="text"
-            class="search-input"
-            placeholder="Inmuebles en Guadalajra..."
-          />
+          <input type="text" class="search-input" placeholder="Inmuebles en Guadalajara..." />
           <span class="search-icon">
             <i class="fa-solid fa-magnifying-glass"></i>
           </span>
@@ -85,10 +69,7 @@ const mainBannerProperties =
         }
       </div>
 
-      <a
-        href="/propiedades/buscador"
-        class="section-properties-grid-container-see-more-button"
-      >
+      <a href="/propiedades/buscador" class="section-properties-grid-container-see-more-button">
         Ver todos los inmuebles
       </a>
     </section>
