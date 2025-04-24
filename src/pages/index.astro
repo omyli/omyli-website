@@ -2,7 +2,6 @@
 // COMPONENTS
 import Layout from '../layouts/Layout.astro';
 import PropertyCard from '../components/PropertyCard.astro';
-import PromoBaner from '../components/PromoBaner.astro';
 // API
 import { listAllProperties, listPropertiesToMainBanner } from '../api/propertiesApi';
 //CSS
@@ -17,7 +16,6 @@ const mainBannerProperties = bannerResponse.status === 200 ? bannerResponse.data
 
 <Layout>
   <div class="container home-container">
-    <PromoBaner />
     <!-- MAIN PROPERTIES -->
     <section class="section-container">
       <h3>Recomendado para ti</h3>
