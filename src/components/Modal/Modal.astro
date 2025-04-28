@@ -1,0 +1,20 @@
+---
+import './modal.css';
+interface Props {
+  isOpen: boolean;
+  imageUrl: string;
+}
+
+const { isOpen, imageUrl } = Astro.props;
+---
+
+<div class={`modal ${isOpen ? 'modal-open' : ''}`}>
+  <div class="modal-content" onclick="this.closest('.modal').classList.remove('modal-open')">
+    <button class="modal-close" onclick="this.closest('.modal').classList.remove('modal-open')"
+      >×</button
+    >
+    <div class="modal-image-container">
+      <img src={imageUrl} alt="Full size image" class="modal-image" />
+    </div>
+  </div>
+</div>

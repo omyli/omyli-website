@@ -1,5 +1,6 @@
 ---
-import "./carousel.css";
+import './carousel.css';
+import Modal from '../Modal/Modal.astro';
 const { images } = Astro.props;
 ---
 
@@ -16,6 +17,8 @@ const { images } = Astro.props;
                 data-src={imageItem}
                 src={imageItem}
                 alt="Imagen secundaria 1"
+                class="clickable-image"
+                data-image={imageItem}
               />
             </li>
           ))
@@ -30,7 +33,7 @@ const { images } = Astro.props;
         {
           images.map((imageItem: string) => (
             <li class="splide__slide">
-              <img src={imageItem} />
+              <img src={imageItem} class="clickable-image" data-image={imageItem} />
             </li>
           ))
         }
@@ -38,15 +41,15 @@ const { images } = Astro.props;
     </div>
   </div>
 </div>
-<script
-  src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"
-></script>
-<!-- <script type="module" src="/scripts/splide-init.js"></script> -->
+
+<Modal isOpen={false} imageUrl="" />
+
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
 
 <script type="module">
-  window.addEventListener("DOMContentLoaded", () => {
-    const main = new Splide("#main-slider", {
-      type: "fade",
+  window.addEventListener('DOMContentLoaded', () => {
+    const main = new Splide('#main-slider', {
+      type: 'fade',
       heightRatio: 0.5,
       pagination: false,
       arrows: true,
@@ -58,12 +61,12 @@ const { images } = Astro.props;
       },
     });
 
-    const thumbnails = new Splide("#thumbnail-slider", {
+    const thumbnails = new Splide('#thumbnail-slider', {
       fixedWidth: 100,
       height: 70,
       isNavigation: true,
       gap: 10,
-      focus: "number",
+      focus: 'number',
       pagination: false,
       cover: true,
       arrows: false,
@@ -76,5 +79,23 @@ const { images } = Astro.props;
     }).mount();
 
     main.sync(thumbnails).mount();
+
+    // Add click handlers for images
+    document.querySelectorAll('.clickable-image').forEach(img => {
+      img.addEventListener('click', () => {
+        const modal = document.querySelector('.modal');
+        const modalImg = modal?.querySelector('.modal-image');
+        if (modal && modalImg) {
+          modalImg.setAttribute('src', img.getAttribute('data-image') || '');
+          modal.classList.add('modal-open');
+        }
+      });
+    });
   });
 </script>
+
+<style>
+  .clickable-image {
+    cursor: pointer;
+  }
+</style>
