@@ -3,9 +3,9 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 2.5rem 10rem;
-  margin-top: 65px;
-  min-height: 60vh;
+  /*padding: 2.5rem 10rem;*/
+  margin-top: 8rem;
+  min-height: calc(100vh - 8rem - 299px);
 }
 
 .contact-main-container .contact-form-container {

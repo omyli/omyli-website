@@ -4,6 +4,7 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
+  margin-bottom: 2rem;
 }
 
 .contact-form-container form {
@@ -33,9 +34,9 @@
   color: #374151;
 }
 
-.contact-form-container form input[type="text"],
-input[type="email"],
-input[type="number"],
+.contact-form-container form input[type='text'],
+input[type='email'],
+input[type='number'],
 select,
 textarea {
   padding: 0.5rem 0.75rem;
@@ -44,7 +45,10 @@ textarea {
   border-radius: 0.5rem;
   color: #1e212b;
   background-color: #f9fafb;
-  transition: border-color 0.3s, background-color 0.3s, box-shadow 0.3s;
+  transition:
+    border-color 0.3s,
+    background-color 0.3s,
+    box-shadow 0.3s;
 }
 
 .contact-form-container form textarea {
