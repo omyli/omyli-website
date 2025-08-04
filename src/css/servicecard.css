@@ -49,7 +49,7 @@
   font-size: 1rem;
 }
 .service-info-container ul li::before {
-  content: "•";
+  content: '•';
   position: absolute;
   left: 0;
   color: #c19b3f; /* dorado */
@@ -74,7 +74,10 @@
   width: 100%;
   height: 100%; */
   width: 450px;
-  transition: opacity 1s ease, transform 0.3s ease;
+  height: 450px;
+  transition:
+    opacity 1s ease,
+    transform 0.3s ease;
   filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.61));
 }
 

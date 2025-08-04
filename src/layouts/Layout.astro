@@ -10,10 +10,23 @@ import "../css/index.css";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-      rel="stylesheet"
-    />
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'" />
+
+    <!-- Preconexión para mejorar tiempos de DNS y TLS handshake -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Carga asincrónica de fuentes -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Roboto:wght@100;400;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Big+Shoulders:opsz,wght@10..72,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Roboto:wght@100;400;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Big+Shoulders:opsz,wght@10..72,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" media="print" onload="this.media='all'">
+
+    <!-- Fallback si el usuario tiene JS desactivado -->
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Roboto:wght@100;400;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Big+Shoulders:opsz,wght@10..72,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    </noscript>
     <meta name="generator" content={Astro.generator} />
     <title>Grupo OMYLI</title>
   </head>
