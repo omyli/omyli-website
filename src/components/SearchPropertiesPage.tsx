@@ -136,12 +136,16 @@ const SearchPropertiesPage = () => {
               </>
             ) : (
               <div className="properties-pagination-empty-container">
-                <img src={emptyState.src} />
-                <h4>Ooops.. No hay resultados</h4>
-                <p>
-                  No tenemos inmuebles que conincidan con tu búsqueda. Te recomendamos ajustar tus
-                  filtros
-                </p>
+                {searchText ? (
+                  <>
+                    <img src={emptyState.src} />
+                    <h4>Ooops.. No hay resultados</h4>
+                    <p>
+                      No tenemos inmuebles que conincidan con tu búsqueda. Te recomendamos ajustar
+                      tus filtros
+                    </p>
+                  </>
+                ) : null}
               </div>
             )}
           </div>
