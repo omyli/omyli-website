@@ -67,7 +67,9 @@
   height: 100%;
   width: 100%;
   object-fit: contain;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
 }
 .property-data-serction_images-container img.fade {
   opacity: 0.3;
@@ -95,6 +97,8 @@
 
 .property-data-serction_description-container p {
   color: #616a87;
+  text-align: left;
+  white-space: pre-line;
 }
 
 .property-data-serction_fields-container {
