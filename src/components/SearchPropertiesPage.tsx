@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import PropertyCard from './PropertyCard.tsx';
 import BeatLoader from 'react-spinners/BeatLoader';
 import { searchProperties } from '../api/propertiesApi.js';
-import emptyState from '../assets/properties-search-empty-state.svg';
+import emptyState from '../assets/properties-search-empty-state.avif';
 import '../css/buscador.css';
 
 const SearchPropertiesPage = () => {
